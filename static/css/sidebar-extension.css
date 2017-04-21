@@ -1,0 +1,44 @@
+html, body{
+  height: 100%;
+  overflow: hidden;
+}
+
+.navbar{
+  margin-bottom: 0;
+}
+
+main{
+  height: 100%;
+  margin-left: 230px;
+  overflow: auto;
+}
+
+.sidebar-extend{
+  background-color: #6C7A89;
+  float: left;
+  /*position: relative;*/
+  /*top:0;*/
+  /*bottom:0;*/
+  width: 230px;
+  height: 100%;
+  overflow-y:auto;
+}
+
+.nav-extend>li>a{
+  color: #D2D7D3;
+}
+
+.nav-extend>li>a:hover, .nav-extend>li>a:visited{
+  background-color: #BDC3C7;
+  border-radius: 0;
+}
+
+.nav-extend>li.active>a, .nav-extend>li.active>a:hover, .nav-extend>li.active>a:visited{
+  background-color: #95A5A6;
+  border-radius: 0;
+}
+
+.nav-child{
+  padding: 0 17px;
+  display: none;
+}

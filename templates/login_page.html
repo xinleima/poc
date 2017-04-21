@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block in_body %}
+  <main class="container vertical-middle">
+
+    <div class="brand-img-div text-center">
+      <img src=/static/img/brand.png>
+    </div>
+
+    <ul class="poc-nav-tabs tab-group">
+      <li class="active tab-control" data-target="#login-tab" id="login-li"><a href="#">登录</a></li>
+      <li data-target="#register-tab" class="tab-control" id="register-li"><a href="#">注册</a></li>
+    </ul>
+
+    <div class="col-md-4 col-md-offset-4" id="login-tab">
+      <form method="post" action="{{ url_for('check_login') }}" id="login-form">
+        <div class="form-group has-error poc-hidden" id="login-msg-div">
+        <span id="login-msg" class="help-block">
+          密码错误！
+        </span>
+        </div>
+        <div class="form-group login-input-div">
+          <input type="text" class="form-control" name="username" placeholder="Username">
+        </div>
+        <div class="form-group login-input-div">
+          <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="remember-me"> Remember Me
+          </label>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="form-control btn btn-info btn-block">登录</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-md-4 col-md-offset-4" id="register-tab">
+      <form method="post" action="{{ url_for('check_register') }}" id="register-form">
+        <div class="form-group has-error poc-hidden" id="register-msg-div">
+        <span class="help-block">
+          两次密码输入不一致！
+        </span>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="username" placeholder="Username">
+        </div>
+        <div class="form-group password-div">
+          <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+        <div class="form-group password-div">
+          <input type="password" class="form-control" name="repeat-password" placeholder="Repeat Password">
+          <span id="register-password-msg" class="help-block poc-hidden">
+          两次密码输入不一致！
+        </span>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="form-control btn btn-info btn-block" href=projectAnalysis.html>注册</button>
+        </div>
+      </form>
+    </div>
+
+
+  </main>
+{% endblock %}
+
+
+

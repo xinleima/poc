@@ -1,0 +1,90 @@
+{% extends "base_after_login.html" %}
+
+{% block in_head %}
+  <link rel="stylesheet" href=/static/css/sidebar-extension.css>
+{% endblock %}
+
+{% block in_body %}
+  <div class="sidebar-extend">
+    <ul class="nav nav-pills nav-stacked nav-extend toggle-group">
+      <li data-target="#data-analysis">
+        <a href="{{ url_for('import_data_direct') }}">
+          <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+          <span>直接导入</span>
+        </a>
+      </li>
+
+      <li  class="active" data-target="#data-list">
+        <a href="#">
+          <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+          <span>参数导入</span>
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <main class="poc-container">
+    <div class="col-md-12">
+      <form class="form-horizontal" method="post" action="#" enctype="multipart/form-data">
+        {% if msg=="success" %}
+          <div class="form-group has-success">
+          <span class="col-sm-offset-2 help-block">
+          导入数据成功！
+        </span>
+          </div>
+        {% elif  msg =='error'%}
+          <div class="form-group has-error">
+          <span class="col-sm-offset-2 help-block">
+          导入数据失败！
+        </span>
+          </div>
+        {% endif %}
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">型号</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="model-id" placeholder="输入型号">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">规格</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="norm" placeholder="输入规格">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword4" class="col-sm-2 control-label">公差</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="tolerance" placeholder="输入公差">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword5" class="col-sm-2 control-label">壳号</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="shell-id" placeholder="输入壳号">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword6" class="col-sm-2 control-label">批号</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="batch-id" placeholder="输入批号">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-6">
+            <input type="file" name="datafile">
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-info ">上传文件</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+{% endblock %}

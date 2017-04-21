@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block in_navbar %}
+  <ul class="nav navbar-nav navbar-right">
+    <li>
+      <a href="{{ url_for('logout') }}">
+        <span class="glyphicon glyphicon glyphicon-log-out" aria-hidden="true"></span>
+        Logout
+      </a>
+    </li>
+  </ul>
+{% endblock %}

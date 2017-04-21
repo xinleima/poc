@@ -1,0 +1,51 @@
+{% extends "base_after_login.html" %}
+
+{% block in_head %}
+  <link rel="stylesheet" href=/static/css/sidebar-extension.css>
+{% endblock %}
+
+{% block in_body %}
+  <div class="sidebar-extend">
+    <ul class="nav nav-pills nav-stacked nav-extend toggle-group">
+      <li class="active" data-target="#data-analysis">
+        <a href="#">
+          <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+          <span>直接导入</span>
+        </a>
+      </li>
+
+      <li data-target="#data-list">
+        <a href="{{ url_for('import_data_with_argument') }}">
+          <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+          <span>参数导入</span>
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <main class="poc-container">
+    <div class="col-md-12">
+      <form action="" method="post" enctype="multipart/form-data">
+       {% if msg=="success" %}
+          <div class="form-group has-success">
+          <span class="help-block">
+          导入数据成功！
+        </span>
+          </div>
+        {% elif  msg =='error'%}
+          <div class="form-group has-error">
+          <span class="help-block">
+          导入数据失败！
+        </span>
+          </div>
+        {% endif %}
+        <div class="form-group">
+          <input type="file" name="datafile">
+        </div>
+        <button type="submit" class="btn btn-info">上传文件</button>
+      </form>
+    </div>
+  </main>
+{% endblock %}

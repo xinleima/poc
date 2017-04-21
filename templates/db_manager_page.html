@@ -1,0 +1,71 @@
+{% extends "base_after_login.html" %}
+
+{% block in_head %}
+  <link rel="stylesheet" href=/static/css/sidebar-extension.css>
+{% endblock %}
+
+{% block in_body %}
+  <div class="sidebar-extend">
+    <ul class="nav nav-pills nav-stacked nav-extend toggle-group">
+      <li class="active" data-target="#data-analysis">
+        <a href="#">
+          <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+          <span>数据分析</span>
+        </a>
+      </li>
+      <ul id="data-analysis" class="nav nav-pills nav-stacked nav-extend nav-child toggle-item">
+        <li>
+          <a href="#">分析1</a>
+        </li>
+        <li>
+          <a href="#">分析2</a>
+        </li>
+      </ul>
+
+      <li data-target="#data-list">
+        <a href="#">
+          <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+          <span>数据列表</span>
+        </a>
+      </li>
+      <ul id="data-list" class="nav nav-pills nav-stacked nav-extend nav-child toggle-item">
+        {% for table_name in table_names %}
+          <li>
+            <a class="data-list-a" href="{{ url_for('db_manager_detail', table_name=table_name) }}">{{ table_name }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <li>
+        <a href="#">
+          <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>
+          <span>其他</span>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+  <main class="poc-container">
+    <div class="col-md-12">
+      <div class="icon-group">
+        <a href="#">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </a>
+        <a href="#">
+          <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+        </a>
+        <a href="#">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </a>
+        <a href="#">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <table class="table table-striped table-bordered table-hover" id="data-list-table">
+      </table>
+    </div>
+  </main>
+
+{% endblock %}
